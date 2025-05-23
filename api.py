@@ -369,13 +369,6 @@ def health_check():
         }), 500
 
 if __name__ == '__main__':
-    print("🚀 Starting Firebase Data API...")
-    print("📊 Available endpoints:")
-    print("   GET /api/health - Health check")
-    print("   GET /api/students - List all students")
-    print("   GET /api/students/search - Search students with filters")
-    print("   GET /api/student/<id> - Get complete student data")
-    print("   GET /api/student/<id>/ocr - Get student OCR data only")
-    print("   GET /api/student/<id>/restructured - Get student restructured data only")
-    print()
-    app.run(debug=True, port=5001)
+    port = int(os.environ.get('PORT', 5001))
+    app.run(debug=False, host='0.0.0.0', port=port)
+
